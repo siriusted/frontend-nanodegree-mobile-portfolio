@@ -1,3 +1,66 @@
+## Installation and Setup
+
+You can find an online version of the optimization project [here]()
+
+To set up locally on your machine. There are a few dependencies you need to download and install. Follow installation instructions on the pages linked below to set up both NodeJS and Gulp
+
+* [NodeJS](https://nodejs.org/en/download/)
+* [Gulp](https://gulpjs.com/)
+
+Once you're done with the steps above, clone this repository and proceed with setup as illustrated below.
+
+```bash
+$> cd /path/to/the-project-folder
+$> npm install
+$> gulp
+```
+ All good.
+
+## Optimizations made
+
+### Part 1: Optimizing index.html
+
+Firstly, I did the following
+
+* Added media attributes in links to css files.
+* Incorporated Google Web Font Loader script.
+* Marked all script tags with async.
+
+Subsequently, with gulp tasks, I :
+
+* minified HTML, CSS and JavaScript tasks
+* optimized images with lossy compression
+* inlined the CSS in html files
+
+### Part 2: Optimizing frames per second in views/pizza.html
+
+I did the following
+
+##### For scroll animations
+
+* Refactored updatePositions() in **main.js** by eliminating repetitive computations, precomputing constant values to be used, and performing attribute reads before updating styles.
+* Promoted `.mover` class DOM Elements to their own layers with `will-change: transform`
+* Debounced scroll input event handler 
+* Reduced the number of `#movingPizzas` added on DOMContentLoaded
+
+
+##### For resizing pizzas
+
+* Refactored resizePizzas() in **main.js** by eliminating multiple DOM queries and rather complicated helper functions used for calculating new sizes.
+* Refactored changePizzaSizes() to handle the change in sizes more intuitively by `switch`-ing between percentage 
+widths and cleaning up the for loop that sets the width on each pizza.
+
+In general, I also replaced DOM queries using `document.querySelector` with `document.getElementById` and `document.getElementsByClassName`
+
+
+## Resources used and more information
+
+1. [Gulp plugin search](https://gulpjs.com/plugins/)
+2. [How to automate all the things with Gulp](https://hackernoon.com/how-to-automate-all-the-things-with-gulp-b21a3fc96885)
+3. [Case Study – Analyzing Web Font Performance](https://www.keycdn.com/blog/web-font-performance/)
+4. [Web Fundamentals | Performance](https://developers.google.com/web/fundamentals/performance/)
+
+
 ## Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
