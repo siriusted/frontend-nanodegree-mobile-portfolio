@@ -1,6 +1,6 @@
 ## Installation and Setup
 
-You can find an online version of the optimization project [here]()
+You can find an online version of the optimization project [here](https://siriusted.github.io/frontend-nanodegree-mobile-portfolio/dist/) and [here](https://siriusted.github.io/frontend-nanodegree-mobile-portfolio/dist/views/pizza.html)
 
 To set up locally on your machine. There are a few dependencies you need to download and install. Follow installation instructions on the pages linked below to set up both NodeJS and Gulp
 
