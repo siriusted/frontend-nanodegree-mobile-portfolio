@@ -12,13 +12,13 @@ var webserver = require('gulp-webserver');
 gulp.task('css', function() {
 	gulp.src(['src/**/*.css', '!node_modules/**'])
 		.pipe(cleanCSS())
-		.pipe(gulp.dest('dist'))
+		.pipe(gulp.dest('dist'));
 });
 
 gulp.task('html', ['css'], function() {
 	gulp.src(['src/**/*.html', '!node_modules/**'])
 		.pipe(htmlclean())
-		.pipe(gulp.dest('dist'))
+		.pipe(gulp.dest('dist'));
 });
 
 gulp.task('html:index', ['html'], function() {
@@ -49,7 +49,7 @@ gulp.task('imageoptim', function() {
 			], {
 	    	verbose: true
 	    }))
-		.pipe(gulp.dest('dist'))
+		.pipe(gulp.dest('dist'));
 });
 
 gulp.task('build', ['html:index', 'js', 'imageoptim']);
@@ -59,7 +59,7 @@ gulp.task('serve', ['build'], function() {
 		.pipe(webserver({
 			open: true,
 			livereload: true,
-		}))
+		}));
 });
 
 gulp.task('default', ['serve']);

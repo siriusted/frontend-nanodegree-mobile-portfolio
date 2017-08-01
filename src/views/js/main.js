@@ -425,6 +425,7 @@ var resizePizzas = function(size) {
 
   changeSliderLabel(size);
 
+  var newwidth;
   function changePizzaSizes(size) {
     //set appropraite width here based on size input
     switch(size) {
@@ -453,7 +454,7 @@ var resizePizzas = function(size) {
   window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
   var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
   console.log("Time to resize pizzas: " + timeToResize[timeToResize.length-1].duration + "ms");
-}
+};
 
 window.performance.mark("mark_start_generating"); // collect timing data
 
@@ -517,7 +518,7 @@ function updatePositions() {
     phases[i] = Math.sin(lastScrollTopScaled + i);
   }
   
-  for (var i = 0; i < items.length; i++) {
+  for (i = 0; i < items.length; i++) {
     items[i].style.left = items[i].basicLeft + 100 * phases[i % 5] + 'px';
   }
 
