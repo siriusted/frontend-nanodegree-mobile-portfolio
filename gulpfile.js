@@ -54,7 +54,7 @@ gulp.task('imageoptim', function() {
 
 gulp.task('build', ['html:index', 'js', 'imageoptim']);
 
-gulp.task('serve', ['build'], function() {
+gulp.task('serve', function() {
 	return gulp.src('dist')
 		.pipe(webserver({
 			open: true,
